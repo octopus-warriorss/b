@@ -33,6 +33,19 @@ app.get('/api/raw', async (req, res) => {
         res.status(500).send('Erro ao obter conteúdo bruto');
     }
 });
+app.get('/api/fotin', async (req, res) => {
+    try {
+        const filePath = `${__dirname}/foto.png`; // Obtém o caminho completo do arquivo gif.gif
+
+        const gifContent = await fs.readFile(filePath);
+
+        res.set('Content-Type', 'image/jpeg');
+        res.send(gifContent);
+    } catch (error) {
+        console.error('Erro ao obter GIF:', error);
+        res.status(500).send('Erro ao obter GIF');
+    }
+});
 
 // Inicia o servidor
 app.listen(PORT, () => {
