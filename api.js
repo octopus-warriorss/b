@@ -4,7 +4,6 @@ const fs = require('fs').promises;
 const app = express();
 const PORT = 3000;
 
-// Rota para obter o GIF da URL fornecida
 app.get('/api/gif', async (req, res) => {
     try {
         const filePath = `${__dirname}/gif.gif`; // Obtém o caminho completo do arquivo gif.gif
