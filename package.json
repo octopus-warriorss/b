@@ -1,0 +1,16 @@
+{
+    "name": "meu-projeto",
+    "version": "1.0.0",
+    "description": "Um projeto simples utilizando o fs e o express",
+    "main": "api.js",
+    "scripts": {
+      "start": "node api.js"
+    },
+    "keywords": [
+      "fs",
+      "express"
+    ],
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }
