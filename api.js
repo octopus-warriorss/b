@@ -4,14 +4,13 @@ const fs = require('fs').promises;
 const app = express();
 const PORT = 3000;
 
-app.get('/api/giif', async (req, res) => {
+app.get('/api/animadin', async (req, res) => {
     try {
         const filePath = `${__dirname}/gif.gif`; // Obtém o caminho completo do arquivo gif.gif
 
         const gifContent = await fs.readFile(filePath);
 
-        res.set('Content-Type', 'image/gif');
-        res.send(gifContent);
+        res.send(gifContent); // Envie o conteúdo bruto do GIF sem especificar o tipo de conteúdo
     } catch (error) {
         console.error('Erro ao obter GIF:', error);
         res.status(500).send('Erro ao obter GIF');
@@ -32,14 +31,14 @@ app.get('/api/raw', async (req, res) => {
         res.status(500).send('Erro ao obter conteúdo bruto');
     }
 });
+
 app.get('/api/fotin', async (req, res) => {
     try {
         const filePath = `${__dirname}/foto.png`; // Obtém o caminho completo do arquivo gif.gif
 
         const gifContent = await fs.readFile(filePath);
 
-        res.set('Content-Type', 'image/jpeg');
-        res.send(gifContent);
+        res.send(gifContent); // Envie o conteúdo bruto da foto sem especificar o tipo de conteúdo
     } catch (error) {
         console.error('Erro ao obter GIF:', error);
         res.status(500).send('Erro ao obter GIF');
