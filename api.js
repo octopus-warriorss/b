@@ -4,7 +4,7 @@ const fs = require('fs').promises;
 const app = express();
 const PORT = 3000;
 
-app.get('/api/gif', async (req, res) => {
+app.get('/api/giif', async (req, res) => {
     try {
         const filePath = `${__dirname}/gif.gif`; // Obtém o caminho completo do arquivo gif.gif
 
