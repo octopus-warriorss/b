@@ -4,9 +4,9 @@ const fs = require('fs').promises;
 const app = express();
 const PORT = 3000;
 
-app.get('/api/animadin', async (req, res) => {
+app.get('/api/gif', async (req, res) => {
     try {
-        const filePath = `${__dirname}/gif.gif`; // Obtém o caminho completo do arquivo gif.gif
+        const filePath = `${__dirname}/foto.png`; // Obtém o caminho completo do arquivo gif.gif
 
         const gifContent = await fs.readFile(filePath);
 
