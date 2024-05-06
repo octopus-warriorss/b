@@ -10,7 +10,8 @@ app.get('/api/animadin', async (req, res) => {
 
         const gifContent = await fs.readFile(filePath);
 
-        res.send(gifContent); // Envie o conteúdo bruto do GIF sem especificar o tipo de conteúdo
+        res.set('Content-Type', 'image/gif'); // Especifica que o conteúdo é um GIF
+        res.send(gifContent);
     } catch (error) {
         console.error('Erro ao obter GIF:', error);
         res.status(500).send('Erro ao obter GIF');
