@@ -6,11 +6,8 @@ const PORT = 3000;
 
 app.get('/api/gif', async (req, res) => {
     try {
-        const filePath = `${__dirname}/foto.png`; // Obtém o caminho completo do arquivo gif.gif
-
+        const filePath = `${__dirname}/gif.gif`;
         const gifContent = await fs.readFile(filePath);
-
-        res.set('Content-Type', 'image/gif'); // Especifica que o conteúdo é um GIF
         res.send(gifContent);
     } catch (error) {
         console.error('Erro ao obter GIF:', error);
@@ -18,13 +15,10 @@ app.get('/api/gif', async (req, res) => {
     }
 });
 
-// Rota para obter o conteúdo bruto do arquivo pagina.txt
 app.get('/api/raw', async (req, res) => {
     try {
-        const filePath = `${__dirname}/pagina.txt`; // Obtém o caminho completo do arquivo pagina.txt
-
+        const filePath = `${__dirname}/pagina.txt`;
         const fileContent = await fs.readFile(filePath, 'utf-8');
-
         res.set('Content-Type', 'text/plain');
         res.send(fileContent);
     } catch (error) {
@@ -35,18 +29,16 @@ app.get('/api/raw', async (req, res) => {
 
 app.get('/api/fotin', async (req, res) => {
     try {
-        const filePath = `${__dirname}/foto.png`; // Obtém o caminho completo do arquivo gif.gif
-
-        const gifContent = await fs.readFile(filePath);
-
-        res.send(gifContent); // Envie o conteúdo bruto da foto sem especificar o tipo de conteúdo
+        const filePath = `${__dirname}/foto.png`;
+        const photoContent = await fs.readFile(filePath);
+        res.set('Content-Type', 'image/png');
+        res.send(photoContent);
     } catch (error) {
-        console.error('Erro ao obter GIF:', error);
-        res.status(500).send('Erro ao obter GIF');
+        console.error('Erro ao obter foto:', error);
+        res.status(500).send('Erro ao obter foto');
     }
 });
 
-// Inicia o servidor
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
